@@ -2,7 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: './src/main.js',
@@ -49,6 +50,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
             BASE_URL: JSON.stringify('./')
         }),
