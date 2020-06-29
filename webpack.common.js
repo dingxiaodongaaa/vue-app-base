@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
@@ -21,7 +22,7 @@ module.exports = {
         use: 'babel-loader'
       },
       {
-        test: /\.js$/,
+        test: /\.(js|vue)$/,
         exclude: [/node_modules/, /dist/],
         use: 'eslint-loader',
         enforce: 'pre'
@@ -55,6 +56,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'app',
       template: './public/index.html'
+    }),
+    new StylelintPlugin({
+      files: ['**/*.{vue,htm,html,css,sss,less,scss,sass}'],
     })
   ]
 }
