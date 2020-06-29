@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const StylelintPlugin = require('stylelint-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -58,7 +58,7 @@ module.exports = {
       template: './public/index.html'
     }),
     new StylelintPlugin({
-      files: ['**/*.{vue,htm,html,css,sss,less,scss,sass}'],
+      files: ['**/*.{vue,htm,html,css,sss,less,scss,sass}']
     })
   ]
 }
