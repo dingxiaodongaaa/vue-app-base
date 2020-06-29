@@ -52,8 +52,12 @@
     }
   },
   "lint-staged": {
-    "*.{js,css,vue,less}": [
-      "yarn lint",
+    "*.{js,vue}": [
+      "eslint",
+      "git add"
+    ],
+    "*.{css,vue,less}": [
+      "stylelint",
       "git add"
     ]
   },
