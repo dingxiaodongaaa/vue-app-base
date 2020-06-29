@@ -6,6 +6,7 @@ import './style.less'
 Vue.config.productionTip = false
 
 const a = 1
+console.log(j)
 
 new Vue({
   render: h => h(App)
