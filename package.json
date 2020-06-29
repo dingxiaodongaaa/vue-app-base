@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "webpack-dev-server --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js",
-    "lint": "eslint --ext .js,.vue src/ & stylelint src/**/*.{css,less,vue}"
+    "lint": "eslint --ext .js,.vue src/ & stylelint src/**/*.{css,less,vue}",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -45,12 +46,14 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn precommit"
+    }
   },
   "lint-staged": {
     "*.{js,css,vue,less}": [
-      "lint",
+      "yarn lint",
       "git add"
     ]
   },
